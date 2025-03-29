@@ -13,20 +13,6 @@ resource "google_project_service" "apis" {
 }
 
 # ------------- IAM config ---------------
-# Create a service account for Data Pipeline
-resource "google_service_account" "data_pipeline_sa" {
-  depends_on = [ google_project_service.apis ]
-  account_id   = "data-pipeline-sa"
-  display_name = "Service Account for Data Pipeline"
-}
-
-# Add roles/editor to service accounts
-resource "google_project_iam_member" "data_pipeline_sa_role" {
-  project = var.project_id
-  role    = "roles/editor"
-  member  = "serviceAccount:${google_service_account.data_pipeline_sa.email}"
-}
-
 data "google_service_account" "service" {
   depends_on = [ google_project_service.apis ]
   account_id = "service"

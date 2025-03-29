@@ -16,13 +16,12 @@ Understanding the relationship between **happiness levels, GDP, and inflation** 
 
 - Google Cloud Platform account
 - Terraform
-- Service account with necessary GCP permissions
 
 ### GCP Configuration
+ - Open Google Cloud Platform (GCP) Console
  - Create a Google Cloud Platform (GCP) project (e.g., `Data Camp 2025`).
- - Set up a **service account** named `service`.
+ - Set up a **service account** named `service` and assign the following roles: **Editor, Security Admin, Service Account Admin**.
  - Save the service account key file as `01-terraform/credentials/gcp_key.json`.
- - Assign the following roles: **Project Editor, Security Admin, Service Account Admin**.
 
 ### Terraform Setup
 
@@ -53,9 +52,9 @@ Terraform automates the infrastructure deployment on GCP.
 ### Manual Execution of DAGs
 
 Once Terraform completes the setup, access the **Airflow Web UI** (URL provided in Terraform output). The DAGs must be triggered manually in the correct order:
-1. Run `01-ingest_to_datalake.py`.
-2. Run `02-copy_to_dwh.py` after the first DAG completes.
-3. Run `03-transform_dbt.py` after the second DAG completes.
+1. Run `01-ingest_to_datalake.py` to download dataset from Kaggle and upload it to **Google Cloud Storage (GCS)**.
+2. Run `02-copy_to_dwh.py` after the first DAG completes to transfers data from GCS to **BigQuery**.
+3. Run `03-transform_dbt.py` after the second DAG completes to run **dbt transformations** to clean, process, and analyze data.
 
 After jobs are finished the following tables will be created in **BigQuery** dataset:
 - `happiness_index_inflation`: Computes **average inflation** and **real GDP per capita**.
