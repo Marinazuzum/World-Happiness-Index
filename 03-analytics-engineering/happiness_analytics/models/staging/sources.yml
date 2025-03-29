@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: staging
+    database: "{{ env_var('AIRFLOW_PROJECT_ID', 'data-camp-capstone-2025') }}"
+    schema: "{{ env_var('BQ_DATASET_NAME', 'happiness_analysis') }}"
+    tables:
+      - name: happiness_index

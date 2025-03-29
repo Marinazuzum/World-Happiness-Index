@@ -1,0 +1,13 @@
+happiness_analytics:
+  outputs:
+    prod:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('AIRFLOW_PROJECT_ID') }}"
+      dataset: "{{ env_var('BQ_DATASET_NAME') }}"
+      location: "{{ env_var('GCP_REGION') }}"
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      priority: interactive
+      threads: 1
+  target: prod

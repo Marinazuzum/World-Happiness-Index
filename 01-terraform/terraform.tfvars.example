@@ -1,0 +1,5 @@
+project_id          = "data-camp-capstone-2025"
+region              = "europe-west3"
+gcs_bucket_name     = "happiness-data-lake-bucket"
+bq_dataset_name     = "happiness_analysis"
+composer_env_name   = "happiness-airflow"
