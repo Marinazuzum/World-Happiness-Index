@@ -10,6 +10,14 @@ Understanding the relationship between **happiness levels, GDP, and inflation** 
 - Compare GDP growth with happiness levels.
 - Provide insights using **dbt models and dashboards**.
 
+## Dashboard
+
+Use the link to access **[Dashboard at Looker Studio](https://lookerstudio.google.com/reporting/3aefd52e-f9ba-4dcc-b15f-684cace9718f)**
+
+![img](dashboard1.png)
+
+![img](dashboard2.png)
+
 ## Project Startup
 
 ### Prerequisites
@@ -135,7 +143,8 @@ graph TD;
     A[Download Data from Kaggle] -->|Airflow DAG 01| B[Upload to GCS]
     B -->|Airflow DAG 02| C[Load Data into BigQuery]
     C -->|Airflow DAG 03| D[dbt Transformations]
-    D --> E[Analytics & Dashboard]
+    D -->|dbt| E[Analytics into BigQuery]
+    E --> F[Dashboard]
 ```
 
 ## Key Features & Functions
@@ -144,9 +153,6 @@ graph TD;
 - **Optimized Storage & Querying:** Uses **BigQuery clustering** for efficient queries.
 - **dbt for Analytics Engineering:** Modular and scalable data transformations.
 - **Dashboard Integration:** Final insights presented in a **BI dashboard**.
-
-## Dashboard Preview
-*Insert a screenshot of your BI dashboard here.*
 
 ## License
 This project is licensed under the MIT License.

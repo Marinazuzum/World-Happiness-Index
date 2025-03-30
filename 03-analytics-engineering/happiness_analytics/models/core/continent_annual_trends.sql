@@ -11,4 +11,4 @@ SELECT
     AVG(Avg_inflation) AS Avg_inflation
 FROM {{ ref('happiness_index_inflation') }}
 GROUP BY 1, 2
-ORDER BY 1, 2
+ORDER BY 2, 1
