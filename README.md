@@ -1,5 +1,11 @@
 # World Happiness Index & Inflation Analysis - End-to-End Data Pipeline
 
+![GCP](https://img.shields.io/badge/Cloud-Google_Cloud_Platform-blue)
+![Terraform](https://img.shields.io/badge/IaC-Terraform-green)
+![Airflow](https://img.shields.io/badge/Orchestration-Apache_Airflow-red)
+![BigQuery](https://img.shields.io/badge/Data_Warehouse-BigQuery-orange)
+![dbt](https://img.shields.io/badge/Transform-dbt-blue)
+
 ## Project Overview
 This project is built for **Google Cloud Platform (GCP)** and aims to develop an end-to-end data pipeline leveraging the [**World Happiness Index and Inflation Dataset**](https://www.kaggle.com/datasets/agrafintech/world-happiness-index-and-inflation-dataset) from Kaggle. The dataset provides a comprehensive view of global happiness trends, GDP per capita, social factors, and inflation metrics from **2015 to 2023**.
 
@@ -48,7 +54,8 @@ Terraform automates the infrastructure deployment on GCP.
    cd 01-terraform
    terraform init
    terraform apply -auto-approve
-   ```
+   ``` 
+   *The deployment process will take around 35-40 minutes. Plese be patient.*
 - After deployment, the **Airflow Web UI URL** will be displayed in the Terraform output.
 
     ```sh
@@ -85,12 +92,6 @@ project-root/
 ```
 
 ### Tech Stack Summary
-
-![GCP](https://img.shields.io/badge/Cloud-Google_Cloud_Platform-blue)
-![Terraform](https://img.shields.io/badge/IaC-Terraform-green)
-![Airflow](https://img.shields.io/badge/Orchestration-Apache_Airflow-red)
-![BigQuery](https://img.shields.io/badge/Data_Warehouse-BigQuery-orange)
-![dbt](https://img.shields.io/badge/Transform-dbt-blue)
 
 - **Cloud Provider:** Google Cloud Platform (GCP)
 - **Infrastructure as Code:** Terraform
